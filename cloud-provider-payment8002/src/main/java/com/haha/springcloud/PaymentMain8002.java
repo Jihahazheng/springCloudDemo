@@ -1,15 +1,14 @@
 package com.haha.springcloud;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaServer
-public class EurekaMain7002 {
+@EnableEurekaClient
+public class PaymentMain8002 {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaMain7002.class);
+        SpringApplication.run(PaymentMain8002.class);
     }
 }

@@ -9,3 +9,7 @@ eureka:
 spring:
   application:
     name: cloud-order-feign-service
+
+ribbon:
+  ReadTimeout: 5000 #建立连接时间
+  ConnectTimeout: 5000 #读取可用资源所用时间

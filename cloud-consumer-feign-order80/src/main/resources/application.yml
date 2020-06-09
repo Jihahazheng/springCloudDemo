@@ -13,3 +13,7 @@ spring:
 ribbon:
   ReadTimeout: 5000 #建立连接时间
   ConnectTimeout: 5000 #读取可用资源所用时间
+
+logging:
+  level:
+    com.haha.springcloud.service.PaymentFeignService: debug

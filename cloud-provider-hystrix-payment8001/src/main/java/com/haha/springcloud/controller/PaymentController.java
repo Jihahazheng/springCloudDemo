@@ -1,6 +1,5 @@
 package com.haha.springcloud.controller;
 
-
 import com.haha.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,4 +33,19 @@ public class PaymentController {
         log.info("*******result:" + result);
         return result;
     }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
+    //===服务熔断
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("*******result:" + result);
+        return result;
+    }
+
+
 }

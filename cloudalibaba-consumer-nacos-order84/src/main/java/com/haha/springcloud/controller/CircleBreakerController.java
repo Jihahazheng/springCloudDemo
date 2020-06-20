@@ -5,7 +5,9 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 
 import com.haha.springcloud.entities.CommonResult;
 import com.haha.springcloud.entities.Payment;
+import com.haha.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,16 @@ public class CircleBreakerController {
 
     @Resource
     private RestTemplate restTemplate;
+
+
+    // OpenFeign
+    @Resource
+    private PaymentService paymentService;
+
+    @GetMapping(value = "/consumer/paymentSQL/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
+        return paymentService.paymentSQL(id);
+    }
 
 
     @RequestMapping("/consumer/fallback/{id}")
